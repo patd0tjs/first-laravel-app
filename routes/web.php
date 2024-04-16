@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorldController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+    // $users = User::where('id', 1)->get();
+
+
+    // dd($users);
 });
+
+Route::get('world', [WorldController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
